@@ -8,6 +8,8 @@ import data from './data.js'
 
 class App extends React.Component {
   constructor() {
+    super()
+    
     this.state = {
       books: data
     }

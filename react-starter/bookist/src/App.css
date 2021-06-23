@@ -42,3 +42,25 @@ main {
   justify-content: space-between;
 }
 
+img {
+  height: 200px;
+  width: 150px;
+}
+
+.book {
+  height: 300px;
+  width: 300px;
+}
+
+.bookMap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h3 {
+  font-size: 12px;
+}
+
+h4 {
+  font-size: 12px;
+}
