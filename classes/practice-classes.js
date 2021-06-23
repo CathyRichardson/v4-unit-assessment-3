@@ -70,7 +70,9 @@ ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
 */
 
 //CODE HERE
-
+ralphsInfo = ralph.getInfo();
+ralphsDialogue = ralph.dialogue();
+ralphsLocation = ralph.location;
 
 //////////////////PROBLEM 3////////////////////
 
@@ -96,6 +98,27 @@ ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
 */
 
 //CODE HERE
+class Player extends Character {
+  constructor(name, type, healthLevel, attackLevel) {
+    super(name, type)
+    this.healthLevel = healthLevel;
+    this.attackLevel = attackLevel;
+  }
+
+  defend(amount) {
+    this.healthLevel -= amount;
+    if (this.healthLevel > 0) {
+      return {
+        attackStrength: amount,
+        remainingHealth: this.healthLevel,
+        message: `${this.name} is still in the fight!`,
+      }
+    } else {
+      return `${this.name} has been defeated!`
+    }
+  }
+}
+
 
 /*
     Next, we'll create two Players.
@@ -106,6 +129,8 @@ ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
 */
 
 //CODE HERE
+let aang = new Player('Aang', 'airbender', 100, 100);
+let ozai = new Player('Ozai', 'firebender', 100, 0);
 
 /*
     Let's see how a fight between these two would go.
@@ -115,6 +140,7 @@ ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
 */
 
 //CODE HERE
+let battle = ozai.defend(100)
 
 //////////////////PROBLEM 4////////////////////
 
@@ -133,6 +159,18 @@ ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
 */
 
 //CODE HERE
+class Hero extends Player {
+  constructor(name, type, healthLevel, attackLevel) {
+    super(name, type, healthLevel, attackLevel)
+    this.superPowers = [];
+  }
+  addSuperPower(power) {
+    this.superPowers.push(power)
+  }
+  useSuperPower(index) {
+    return `${this.name} used ${this.superPowers[index]}!`
+  }
+}
 
 /*
   Create a hero named 'Fire Spitter' whose type is 'dragon'.
@@ -144,3 +182,10 @@ ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
 */
 
 //CODE HERE
+
+let fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000);
+fireSpitter.addSuperPower('spitting fire');
+fireSpitter.addSuperPower('flying');
+fireSpitter.addSuperPower('blowing smoke');
+fireSpitterAttack = fireSpitter.useSuperPower(0)
+
