@@ -37,6 +37,12 @@
   }
 }
 
+section {
+  margin: 15px;
+  padding: 15px;
+  border-top: 10px solid green;
+}
+
 main {
   display: flex;
   justify-content: space-between;
@@ -53,14 +59,32 @@ img {
 }
 
 .bookMap {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
 }
 
+.shelfDiv {
+  width: 30vw;
+  border-left: 2px solid gray;
+  padding: 35px;
+}
+
+h2{
+  text-align: center;
+}
+
 h3 {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 h4 {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: -10px;
 }
+
+button {
+  margin-left: 15px;
+}
+
