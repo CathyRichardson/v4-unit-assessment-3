@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
     constructor() {
@@ -10,12 +10,26 @@ export default class SearchBar extends Component {
 
     }
 
+    handleChange = (e) => {
+        let input = e.target.value;
+        this.setState({ userinput: input })
+    }
+
+    handleClick = () => {
+        this.props.filterBooks(this.state.userinput); 
+    }
+
+    handleClear = () => {
+        this.setState({userinput: ''})
+        this.props.reset();
+    }
+
     render() {
-        return(
+        return (
             <div>
-                <input />
-                <button>search</button>
-                <button >clear search</button>
+                <input onChange={this.handleChange} value={this.state.userinput}/>
+                <button onClick={this.handleClick}>search</button>
+                <button onClick={this.handleClear}>clear search</button>
             </div>
         )
     }

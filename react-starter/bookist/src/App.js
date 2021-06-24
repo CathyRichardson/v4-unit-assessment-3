@@ -29,16 +29,25 @@ class App extends React.Component {
     this.setState({ shelf: shelf })
   }
 
+  filterBooks = (input) => {
+    let books = this.state.books;
+    let filteredBooks = books.filter(element => element.title.includes(input) || element.author.includes(input));
+    this.setState({ books: filteredBooks })
+  }
+
+  reset = () => {
+    this.setState({books: data})
+  }
+  
   render() {
     return (
       <div className="App">
         <Header />
         <section>
-          <SearchBar />
+          <SearchBar filterBooks={this.filterBooks} reset={this.reset}/>
         </section>
         <main>
           <BookList books={this.state.books} addToShelf={this.addToShelf} />
-          {/* {console.log(this.state.shelf)} */}
           <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf} />
         </main>
       </div>
