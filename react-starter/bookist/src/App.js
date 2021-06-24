@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 import Header from './Components/Header';
@@ -18,14 +17,16 @@ class App extends React.Component {
     this.addToShelf = this.addToShelf.bind(this);
   }
 
-  addToShelf (input) {
-    let copyShelf = [...this.state.shelf, input];
-    this.setState({shelf: copyShelf})
+  addToShelf(input) {
+    if (!this.state.shelf.includes(input)) {
+      let copyShelf = [...this.state.shelf, input];
+      this.setState({ shelf: copyShelf })
+    }
   }
 
   clearShelf = () => {
     let shelf = [];
-    this.setState({shelf: shelf})
+    this.setState({ shelf: shelf })
   }
 
   render() {
@@ -36,9 +37,9 @@ class App extends React.Component {
           <SearchBar />
         </section>
         <main>
-          <BookList books={this.state.books} addToShelf={this.addToShelf}/>
+          <BookList books={this.state.books} addToShelf={this.addToShelf} />
           {/* {console.log(this.state.shelf)} */}
-          <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf}/>
+          <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf} />
         </main>
       </div>
     );

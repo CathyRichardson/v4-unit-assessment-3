@@ -1,4 +1,3 @@
-import App from "../App";
 
 function BookList(props) {
 
@@ -6,8 +5,7 @@ function BookList(props) {
     function book(element, index) {
         return (
             <div className="book" key={index}>
-                <img src={element.img} onClick={ (element, index) => props.addToShelf(element.title)}/>
-                {/* {console.log(element.title)} */}
+                <img src={element.img} alt="book cover" onClick={event => props.addToShelf(element.title)} />
                 <h3>{element.title}</h3>
                 <h4>{element.author}</h4>
             </div>
