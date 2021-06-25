@@ -87,3 +87,25 @@ h4 {
 button {
   margin-left: 15px;
 }
+
+button:focus {
+  border-color: #00006D;
+}
+
+button:hover {
+  background-color: green;
+  color: white;
+}
+
+ button:active {
+  background-color: darkgreen;
+}
+
+.hiddenButton {
+  visibility: hidden;
+}
+
+.shelfMessage {
+  font-style: italic;
+  color: green;
+}

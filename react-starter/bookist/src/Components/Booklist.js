@@ -20,15 +20,3 @@ function BookList(props) {
 }
 
 export default BookList;
-
-
-//  < div className="bookMap">
-// {props.books.map((element, index) {
-        // return (
-        //     <div className="book" key={index}>
-        //         <img src={element.img} />
-        //         <h3>{element.title}</h3>
-        //         <h4>{element.author}</h4>
-        //     </div>
-        // ))}
-// </div >

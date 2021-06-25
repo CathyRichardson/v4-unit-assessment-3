@@ -31,20 +31,22 @@ class App extends React.Component {
 
   filterBooks = (input) => {
     let books = this.state.books;
-    let filteredBooks = books.filter(element => element.title.includes(input) || element.author.includes(input));
+    let lowerInput = input.toLowerCase();
+    let filteredBooks = books.filter(element => element.title.toLowerCase().includes(lowerInput)
+      || element.author.toLowerCase().includes(lowerInput));
     this.setState({ books: filteredBooks })
   }
 
   reset = () => {
-    this.setState({books: data})
+    this.setState({ books: data })
   }
-  
+
   render() {
     return (
       <div className="App">
         <Header />
         <section>
-          <SearchBar filterBooks={this.filterBooks} reset={this.reset}/>
+          <SearchBar filterBooks={this.filterBooks} reset={this.reset} />
         </section>
         <main>
           <BookList books={this.state.books} addToShelf={this.addToShelf} />
